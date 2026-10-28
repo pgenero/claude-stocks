@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "fabric-collection": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/microsoft/skills-for-fabric.git"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "powerbi-authoring@fabric-collection": true
+  }
+}

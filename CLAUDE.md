@@ -24,3 +24,14 @@ A Power BI Project (PBIP, saved in Power BI Desktop "DevMode") that charts US st
 - The comment in `index_nasdaq.tmdl` gives a wrong source link (`PCU2122212122210`). The query itself actually fetches `NASDAQCOM`.
 - `.pbi/localSettings.json` and `.pbi/cache.abf` are gitignored, local-only files. Don't edit them.
 - The report page and UI text are in Spanish.
+
+# Mandatory Project Instructions (Power BI & TMDL Safeguards)
+
+## Golden Rule Against Raw Code Fallbacks
+* **STRICTLY PROHIBITED:** Do not manually edit, modify, or rewrite Power BI metadata files (`.tmdl`, `.bim`, `.pbi`, or model folders) using generic text-editing tools (such as `write_to_file`, `edit_file`, or line replacements).
+* Every single change regarding DAX measures, table relationships, or semantic model structures **MUST** be executed exclusively by invoking the tools provided by the `powerbi-modeling-mcp` server.
+
+## Operational Protocol
+1. When asked to create, update, or optimize a DAX measure, you must first utilize the MCP server tools to inspect the current state of the model.
+2. Apply structural adjustments solely through the Model Context Protocol (MCP) server endpoints connected to Power BI.
+3. If the action requested is unsupported by the MCP server or if the server goes offline, **STOP immediately** and alert the user. Do not attempt to fallback into editing the raw TMDL or BIM files as text.
