@@ -7,9 +7,9 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation __PBI_TimeIntelligenceEnabled = 0
+annotation PBI_QueryOrder = ["index_nasdaq","index_sp","index_dowjones","DAX_Measures"]
 
-annotation PBI_QueryOrder = ["index_nasdaq","index_sp","index_dowjones"]
+annotation __PBI_TimeIntelligenceEnabled = 0
 
 annotation PBI_ProTooling = ["DevMode"]
 
@@ -17,6 +17,7 @@ ref table index_nasdaq
 ref table index_sp
 ref table dim_Calendar
 ref table index_dowjones
+ref table DAX_Measures
 
 ref cultureInfo en-US
 

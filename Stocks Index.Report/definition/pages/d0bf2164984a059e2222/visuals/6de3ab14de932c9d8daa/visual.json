@@ -36,60 +36,48 @@
           "projections": [
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "index_sp"
-                        }
-                      },
-                      "Property": "SP500"
+                    "SourceRef": {
+                      "Entity": "DAX_Measures"
                     }
                   },
-                  "Function": 0
+                  "Property": "001 SUMA SP500"
                 }
               },
-              "queryRef": "Sum(index_sp.SP500)",
-              "nativeQueryRef": "Sum of SP500"
+              "queryRef": "DAX_Measures.001 SUMA SP500",
+              "nativeQueryRef": "001 SUMA SP500",
+              "displayName": "S&P 500"
             },
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "index_nasdaq"
-                        }
-                      },
-                      "Property": "NASDAQCOM"
+                    "SourceRef": {
+                      "Entity": "DAX_Measures"
                     }
                   },
-                  "Function": 0
+                  "Property": "002 SUMA NASDAQCOM"
                 }
               },
-              "queryRef": "Sum(index_nasdaq.NASDAQCOM)",
-              "nativeQueryRef": "Sum of NASDAQCOM"
+              "queryRef": "DAX_Measures.002 SUMA NASDAQCOM",
+              "nativeQueryRef": "002 SUMA NASDAQCOM",
+              "displayName": "NASDAQ"
             },
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "index_dowjones"
-                        }
-                      },
-                      "Property": "DJIA"
+                    "SourceRef": {
+                      "Entity": "DAX_Measures"
                     }
                   },
-                  "Function": 0
+                  "Property": "003 SUMA DJIA"
                 }
               },
-              "queryRef": "Sum(index_dowjones.DJIA)",
-              "nativeQueryRef": "Sum of DJIA"
+              "queryRef": "DAX_Measures.003 SUMA DJIA",
+              "nativeQueryRef": "003 SUMA DJIA",
+              "displayName": "DOW JONES"
             }
           ]
         }
@@ -120,18 +108,13 @@
       {
         "name": "0dbfa0f88cce5acb90da",
         "field": {
-          "Aggregation": {
+          "Measure": {
             "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "index_sp"
-                  }
-                },
-                "Property": "SP500"
+              "SourceRef": {
+                "Entity": "DAX_Measures"
               }
             },
-            "Function": 0
+            "Property": "001 SUMA SP500"
           }
         },
         "type": "Advanced"
@@ -153,18 +136,13 @@
       {
         "name": "848042277b00471100e8",
         "field": {
-          "Aggregation": {
+          "Measure": {
             "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "index_nasdaq"
-                  }
-                },
-                "Property": "NASDAQCOM"
+              "SourceRef": {
+                "Entity": "DAX_Measures"
               }
             },
-            "Function": 0
+            "Property": "002 SUMA NASDAQCOM"
           }
         },
         "type": "Advanced"
@@ -172,18 +150,13 @@
       {
         "name": "21e536025093ec4cbca8",
         "field": {
-          "Aggregation": {
+          "Measure": {
             "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "index_dowjones"
-                  }
-                },
-                "Property": "DJIA"
+              "SourceRef": {
+                "Entity": "DAX_Measures"
               }
             },
-            "Function": 0
+            "Property": "003 SUMA DJIA"
           }
         },
         "type": "Advanced"
