@@ -1,0 +1,40 @@
+table DAX_Measures
+	lineageTag: 4a702641-8d47-48c2-8876-5e9f3bfd7656
+
+	measure '001 SUMA SP500' = SUM(index_sp[SP500])
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: cadf6a52-fb54-4f05-9112-7a365edfb233
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure '002 SUMA NASDAQCOM' = SUM(index_nasdaq[NASDAQCOM])
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 571fcb78-023b-4cc7-89b8-524445e98597
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure '003 SUMA DJIA' = SUM(index_dowjones[DJIA])
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 552d75ca-7381-4848-af0c-9e9a69c1de8e
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Column1
+		dataType: string
+		lineageTag: ec323a38-5743-4eba-8146-cfdd91cad8c4
+		summarizeBy: none
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DAX_Measures = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
